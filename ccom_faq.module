@@ -1,0 +1,36 @@
+<?php
+
+/**
+ * @file
+ * Main ccom_faq module file.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function ccom_faq_theme($existing, $type, $theme, $path) {
+  return [
+    'faqfield_ccom_answer_text' => [
+      'variables' => [
+        'question' => NULL,
+        'answer' => NULL,
+        'answer_format' => NULL,
+        'delta' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Prepares variables for the ccom answer text field formatter template.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - question: Question value.
+ *   - answer: Answer value.
+ *   - answer_format: Answer markup format.
+ *   - delta: Delta of field element.
+ */
+function template_preprocess_faqfield_ccom_answer_text(array &$variables) {
+  $variables['answer'] = check_markup($variables['answer'], $variables['answer_format']);
+}
