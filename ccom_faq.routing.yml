@@ -1,0 +1,9 @@
+ccom_faq.linkit_dialog:
+  path: '/faq_linkit/dialog/linkit/{filter_format}'
+  defaults:
+    _form: '\Drupal\ccom_faq\Form\FaqLinkitEditorDialog'
+    _title: 'Add faq link'
+  requirements:
+    _entity_access: 'filter_format.use'
+  options:
+    _theme: ajax_base_page
